@@ -56,10 +56,10 @@ class Task():
         z_distance = 1 - 2*(abs(self.sim.pose[2] - self.target_pos[2]))
         if z_distance < -1: ## if the z-distance is getting bigger, then give a negative reward.
             reward -= 1
-        elif z_distance == 1: ## if the z-distance is 0, then give a big positive reward.
-            reward += 2
+        elif z_distance > 0: ## if the z-distance is 0, then give a big positive reward.
+            reward += 5
         else:                ## if the z-distance is getting closer, then give a positive reward.
-            reward += 1
+            reward += 2
         
         return reward
 
